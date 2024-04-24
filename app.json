@@ -4,11 +4,11 @@
     "slug": "afternooncrash",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/afternoon_crash.png",
     "userInterfaceStyle": "light",
     "scheme": "expo-floating-player",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/afternoon_crash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -20,7 +20,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/images/afternoon_crash.png",
         "backgroundColor": "#ffffff"
       }
     },

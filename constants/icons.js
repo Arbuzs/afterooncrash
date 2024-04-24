@@ -1,0 +1,11 @@
+import homeButton from "../assets/icons/home_button.png";
+import recordButton from "../assets/icons/record_button.png";
+import settingsButton from "../assets/icons/settings_button.png";
+import arrow from "../assets/icons/arrow.png";
+
+export default {
+    homeButton,
+    recordButton,
+    settingsButton,
+    arrow,
+};
