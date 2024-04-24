@@ -21,6 +21,11 @@ const styles = StyleSheet.create({
         paddingBottom: 20,
         paddingTop: 50,
     },
+    bottomToolbar: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    }
 });
 
 export default styles;

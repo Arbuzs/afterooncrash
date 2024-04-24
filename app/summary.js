@@ -16,7 +16,7 @@ export default function Summary() {
                 <TrackToolbar type={"Sleep"} />
                 <TrackToolbar type={"Afternoon Crash"} />
             </View>
-            <BottomToolbar />
+            <BottomToolbar style={styles.bottomToolbar}/>
         </View>
     )
 }

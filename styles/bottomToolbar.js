@@ -4,9 +4,9 @@ import { COLORS, FONT, SIZES } from "../constants";
 
 const styles = StyleSheet.create({
     outerContainer: {
-        width: '100%',
+        alignSelf: 'center',
+        width: '90%',
         height: 112,
-        position: 'relative',
         marginTop: 20
     },
     innerContainer: {
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'center',
         backgroundColor: COLORS.primary_2,
-        borderRadius: 30,
+        borderRadius: 10,
         paddingTop: 3,
     },
     buttonContainer: {
