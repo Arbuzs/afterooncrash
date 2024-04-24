@@ -1,22 +1,26 @@
 import { View, Text } from 'react-native';
 
+import Header from '../components/header';
 import TrackToolbar from '../components/trackToolbar';
 import BottomToolbar from '../components/bottomToolbar';
 
-import styles from '../styles/summary';
+import { ENUMS } from '../constants';
+
+import styles from '../styles/screens/summary';
+import baseScreenStyles from '../styles/screens/baseScreen';
 
 
 export default function Summary() {
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.heading}>Summary</Text>
+        <View style={baseScreenStyles.container}>
+            <Header title="Summary" />
             <View style={styles.content}>
-                <TrackToolbar type={"Heart Rate"} />
-                <TrackToolbar type={"Sleep"} />
-                <TrackToolbar type={"Afternoon Crash"} />
+                <TrackToolbar type={ENUMS.HEART_RATE_BUTTON} />
+                <TrackToolbar type={ENUMS.SLEEP_BUTTON} />
+                <TrackToolbar type={ENUMS.AFTERNOON_CRASH_BUTTON} />
             </View>
-            <BottomToolbar style={styles.bottomToolbar}/>
+            <BottomToolbar />
         </View>
     )
 }

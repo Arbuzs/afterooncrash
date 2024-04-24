@@ -1,10 +1,12 @@
 import { StyleSheet } from "react-native";
-import { COLORS, FONT, SIZES } from "../constants";
+import { COLORS, FONT, SIZES } from "../../constants";
 
 
 const styles = StyleSheet.create({
     outerContainer: {
         alignSelf: 'center',
+        position: 'absolute',
+        bottom: 0,
         width: '90%',
         height: 112,
         marginTop: 20
