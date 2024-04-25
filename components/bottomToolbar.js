@@ -21,7 +21,6 @@ export default function BottomToolbar() {
                     <Image source={icons.recordButton} style={[styles.image, styles.recordImage]} />
                     <Text style={[styles.text, styles.recordText]}>Record</Text>
                 </Pressable>
-
                 {/* Settings */}
                 <Pressable style={styles.buttonContainer} onPress={() => console.log('Settings pressed')}>
                     <Image source={icons.settingsButton} style={styles.image} />

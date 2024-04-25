@@ -11,7 +11,7 @@ const COLORS = {
     primary_2: '#3D5A80',
     lightText_2: '#98C1D9',
     lightShade_2: '#E0FBFC',
-    white: '#FFFFFF'
+    white: '#FFFFFF',
 };
 
 const FONT = {
