@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
     
     container: {
       position:'absolute',
-      bottom: 100,
+      bottom: 0,
       width: '100%',
       height:82,
       flexDirection: 'row',
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         height: 24
     },
     timer: {
-      marginTop: 250,
+      marginTop: -250,
       ...FONT.title_1,
       color: COLORS.mainText_1,
       textAlign: 'center',

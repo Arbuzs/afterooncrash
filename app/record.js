@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Button } from 'react-native';
 import Stopwatch from '../components/stopwatch';
 import styles from '../styles/components/header';
+import styles3 from '../styles/screens/summary';
 import styles2 from '../styles/components/stopwatch';
 
 export default function Record() {
@@ -46,7 +47,7 @@ export default function Record() {
     };
 
     return (
-        <View style={styles.container}>
+        <View style={styles3.content}>
             <Text style={styles.heading}>Record</Text>
             <Text style={styles2.timer}>{formatTime()}</Text>
             <View style={styles2.container}>
