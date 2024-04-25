@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 112,
         position: 'relative',
-        marginTop: 20,
+        marginTop: 20
     },
     innerContainer: {
         position: 'absolute',
@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.primary_2,
         borderRadius: 30,
         paddingTop: 3,
-      
     },
     buttonContainer: {
         alignItems: 'center',

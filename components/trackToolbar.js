@@ -1,14 +1,14 @@
 import React from 'react';
 import { Image, Text, Pressable } from 'react-native';
 
-import { icons } from '../constants';
-import styles from '../styles/trackToolbar';
+import { icons, ENUMS } from '../constants';
+import styles from '../styles/components/trackToolbar';
 
 
 export default function TrackToolbar({type}) {
     switch (type) {
 
-        case "Heart Rate":
+        case ENUMS.HEART_RATE_BUTTON:
             return (
                 <Pressable style={styles.heartRateContainer} onPress={() => console.log('Heart Rate pressed')}>
                     <Text style={styles.text}>Heart Rate</Text>
@@ -16,7 +16,7 @@ export default function TrackToolbar({type}) {
                 </Pressable>
             );
 
-        case "Sleep":
+        case ENUMS.SLEEP_BUTTON:
             return (
                 <Pressable style={styles.sleepContainer} onPress={() => console.log('Sleep pressed')}>
                     <Text style={styles.text}>Sleep</Text>
@@ -24,7 +24,7 @@ export default function TrackToolbar({type}) {
                 </Pressable>
             );
 
-        case "Afternoon Crash":
+        case ENUMS.AFTERNOON_CRASH_BUTTON:
             return (
                 <Pressable style={styles.afternoonCrashContainer} onPress={() => console.log('Afternoon Crash pressed')}>
                     <Text style={styles.text}>Afternoon Crash</Text>
