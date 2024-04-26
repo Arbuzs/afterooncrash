@@ -19,6 +19,7 @@ export default function AfternoonCrashScreen({}) {
             <View style={baseScreenStyles.baseDataContainer}>
                 <AfternoonCrashData dataType={dataType}/>
             </View>
+            <View style={baseScreenStyles.spacer}/>
             <BottomToolbar />
         </View>
     )

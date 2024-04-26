@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent:'space-around',
       alighItems:'center'
-  
     },
     button: {
       marginBottom: 20,
@@ -21,7 +20,6 @@ const styles = StyleSheet.create({
       borderRadius: 60, // half of width/height to make it a circle
       backgroundColor: COLORS.primary_2,
     },
-  
     resumeButton: {
       backgroundColor: COLORS.lightText_2,
       stroke: COLORS.mainText_1,
