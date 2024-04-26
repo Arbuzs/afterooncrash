@@ -11,7 +11,7 @@ import { ENUMS } from '../constants';
 
 export default function AfternoonCrashScreen({}) {
     
-    const dataType = ENUMS.WEAK_OVERVIEW_DATA;
+    const dataType = ENUMS.CALENDAR_DATA;
 
     return (
         <View style={baseScreenStyles.container}>

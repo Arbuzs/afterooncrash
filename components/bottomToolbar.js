@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'expo-router';
 import { StyleSheet, View, Image, Text, Pressable } from 'react-native';
 
 import { icons } from '../constants';
@@ -17,10 +17,12 @@ export default function BottomToolbar() {
                 </Pressable>
 
                 {/* Record */}
-                <Pressable style={[styles.buttonContainer, styles.recordButtonContainer]} onPress={() => console.log('Record pressed')}>
-                    <Image source={icons.recordButton} style={[styles.image, styles.recordImage]} />
-                    <Text style={[styles.text, styles.recordText]}>Record</Text>
-                </Pressable>
+                <Link href="/record" style={[styles.buttonContainer, styles.recordButtonContainer]} asChild>
+                    <Pressable onPress={() => console.log('Record pressed')}>
+                        <Image source={icons.recordButton} style={[styles.image, styles.recordImage]} />
+                        <Text style={[styles.text, styles.recordText]}>Record</Text>
+                    </Pressable>
+                </Link>
                 {/* Settings */}
                 <Pressable style={styles.buttonContainer} onPress={() => console.log('Settings pressed')}>
                     <Image source={icons.settingsButton} style={styles.image} />
