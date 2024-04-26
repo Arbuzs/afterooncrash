@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Button } from 'react-native';
 import Stopwatch from '../components/stopwatch';
 import styles from '../styles/components/header';
-import styles3 from '../styles/screens/summary';
-import styles2 from '../styles/components/stopwatch';
+import styles3 from '../styles/screens/record';
+import styles2 from '../styles/components/stopWatch';
 
 export default function Record() {
     const [time, setTime] = useState(0);

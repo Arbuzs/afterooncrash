@@ -12,12 +12,19 @@ const COLORS = {
     lightText_2: '#98C1D9',
     lightShade_2: '#E0FBFC',
     white: '#FFFFFF',
+    black: '#000000',
 };
 
 const FONT = {
     title_1: {
         fontFamily: "Roboto",
         fontSize: 50,
+        fontWeight: 'bold',
+        fontStyle: 'normal',
+    },
+    bold_48: {
+        fontFamily: "Roboto",
+        fontSize: 48,
         fontWeight: 'bold',
         fontStyle: 'normal',
     },

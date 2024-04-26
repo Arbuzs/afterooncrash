@@ -11,7 +11,7 @@ import { ENUMS } from '../constants';
 
 export default function AfternoonCrashScreen({}) {
     
-    const dataType = ENUMS.WEAK_OVERVIEW_DATA;
+    const dataType = ENUMS.CRASH_SCORE_DATA;
 
     return (
         <View style={baseScreenStyles.container}>
@@ -19,6 +19,7 @@ export default function AfternoonCrashScreen({}) {
             <View style={baseScreenStyles.baseDataContainer}>
                 <AfternoonCrashData dataType={dataType}/>
             </View>
+            <View style={baseScreenStyles.spacer}/>
             <BottomToolbar />
         </View>
     )

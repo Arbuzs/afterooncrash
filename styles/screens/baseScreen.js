@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { COLORS, FONT, SIZES } from "../../constants";
+import BottomToolbar from "../../components/bottomToolbar";
 
 const baseScreenStyles = StyleSheet.create({
     container: {
@@ -8,8 +9,13 @@ const baseScreenStyles = StyleSheet.create({
         position: 'relative',
     },
     baseDataContainer: {
+        alignItems: 'center',
+        flex: 15,
         marginTop: 80,
-    }
+    },
+    spacer: {
+        flex: 1,
+    },
 });
 
 export default baseScreenStyles;
