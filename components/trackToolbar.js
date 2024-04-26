@@ -83,6 +83,7 @@ export default function TrackToolbar({ type }) {
                             <Text style={[styles.periodText, { color: selectedPeriod === 'Y' ? COLORS.black : COLORS.white }]}>Y</Text>
                         </Pressable>
                     </View>
+                    <View style={styles.graphContainer}/>
                 </Pressable>
             );
     }

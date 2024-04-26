@@ -68,6 +68,15 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 10,
         borderBottomRightRadius: 10,
     },
+    graphContainer: {
+        flex: 1,
+        backgroundColor: COLORS.white,
+        marginTop: 20,
+        marginLeft: 20,
+        marginRight: 20,
+        marginBottom: 30,
+        borderRadius: 10,
+    }
 });
 
 export default styles;
