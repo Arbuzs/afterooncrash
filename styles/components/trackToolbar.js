@@ -43,10 +43,11 @@ const styles = StyleSheet.create({
         right:10,
     },
     periodContainer: {
+        width: '100%',
         flexDirection: 'row',
         marginTop: 50,
-        marginLeft: 20,
-        marginRight: 20,
+        paddingLeft: 20,
+        paddingRight: 20,
         borderRadius: 40,
         alignSelf: 'center',
       },
