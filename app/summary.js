@@ -6,7 +6,6 @@ import BottomToolbar from '../components/bottomToolbar';
 
 import { ENUMS } from '../constants';
 
-import styles from '../styles/screens/summary';
 import baseScreenStyles from '../styles/screens/baseScreen';
 
 
