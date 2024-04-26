@@ -22,15 +22,15 @@ const styles = StyleSheet.create({
     },
     heartRateContainer: {
         ...container,
-        height: '12%',
+        flex: 0.2,
     },
     sleepContainer: {
         ...container,
-        height: '12%',
+        flex: 0.2,
     },
     afternoonCrashContainer: {
         ...container,
-        height: '60%',
+        flex: 1,
     },
     text: {
         ...text,
@@ -41,7 +41,33 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 10,
         right:10,
-    }
+    },
+    periodContainer: {
+        flexDirection: 'row',
+        marginTop: 50,
+        marginLeft: 20,
+        marginRight: 20,
+        borderRadius: 40,
+        alignSelf: 'center',
+      },
+      period: {
+        flex: 1,
+        height: 40,
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      periodText: {
+        ...FONT.bold_16,
+        color: COLORS.black,
+      },
+      firstPeriod: {
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10,
+    },
+    lastPeriod: {
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10,
+    },
 });
 
 export default styles;

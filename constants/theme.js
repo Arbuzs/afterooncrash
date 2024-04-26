@@ -12,6 +12,7 @@ const COLORS = {
     lightText_2: '#98C1D9',
     lightShade_2: '#E0FBFC',
     white: '#FFFFFF',
+    black: '#000000',
 };
 
 const FONT = {
