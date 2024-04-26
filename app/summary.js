@@ -15,7 +15,7 @@ export default function Summary() {
     return (
         <View style={baseScreenStyles.container}>
             <Header title="Summary" />
-            <View style={styles.content}>
+            <View style={baseScreenStyles.baseDataContainer}>
                 <TrackToolbar type={ENUMS.HEART_RATE_BUTTON} />
                 <TrackToolbar type={ENUMS.SLEEP_BUTTON} />
                 <TrackToolbar type={ENUMS.AFTERNOON_CRASH_BUTTON} />

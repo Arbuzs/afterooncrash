@@ -11,10 +11,12 @@ export default function BottomToolbar() {
             <View style={styles.innerContainer}>
 
                 {/* Home */}
-                <Pressable style={styles.buttonContainer} onPress={() => console.log('Home pressed')}>
-                    <Image source={icons.homeButton} style={styles.image} />
-                    <Text style={styles.text}>Home</Text>
-                </Pressable>
+                <Link href="/summary" style={styles.buttonContainer} asChild>
+                    <Pressable onPress={() => console.log('Home pressed')}>
+                        <Image source={icons.homeButton} style={styles.image} />
+                        <Text style={styles.text}>Home</Text>
+                    </Pressable>
+                </Link>
 
                 {/* Record */}
                 <Link href="/record" style={[styles.buttonContainer, styles.recordButtonContainer]} asChild>

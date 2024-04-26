@@ -9,6 +9,7 @@ const baseScreenStyles = StyleSheet.create({
         position: 'relative',
     },
     baseDataContainer: {
+        alignItems: 'center',
         flex: 10,
         marginTop: 80,
     },
