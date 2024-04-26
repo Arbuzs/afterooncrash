@@ -1,12 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { View, Text, Button } from 'react-native';
 import Stopwatch from '../components/stopwatch';
 import styles from '../styles/components/header';
-import styles3 from '../styles/screens/record';
-import styles2 from '../styles/components/stopwatch';
+import styles3 from '../styles/components/stopwatch'; 
+import styles2 from '../styles/screens/record';
 
 export default function Record() {
+    const navigation = useNavigation();
     const [time, setTime] = useState(0);
     const [intervalId, setIntervalId] = useState(null);
     const [timerStatus, setTimerStatus] = useState('idle'); // 'idle', 'running', 'paused'
@@ -37,7 +39,12 @@ export default function Record() {
     const finishAndSave = () => {
         console.log('finishAndSave');
         stopTimer();  // Stop the timer if running
-        navigation.navigate('saveactivity', { recordedTime: formatTime() });  // Navigate and pass time
+        try {
+            navigation.navigate('SaveActivity', { recordedTime: formatTime() });
+        } catch (error) {
+            console.error('Failed to navigate:', error);
+        }
+         // Navigate and pass time
     };
 
     useEffect(() => {
@@ -52,10 +59,10 @@ export default function Record() {
     };
 
     return (
-        <View style={styles3.content}>
+        <View style={styles2.content}>
             <Text style={styles.heading}>Record</Text>
-            <Text style={styles2.timer}>{formatTime()}</Text>
-            <View style={styles2.container}>
+            <Text style={styles3.timer}>{formatTime()}</Text>
+            <View style={styles3.container}>
                 {timerStatus === 'idle' && (
                     <>
                         <Stopwatch type="Start" handleTimer={startTimer} time={formatTime()} />
@@ -76,4 +83,6 @@ export default function Record() {
             </View>
         </View>
     );
+    
+
 }
