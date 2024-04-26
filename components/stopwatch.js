@@ -2,7 +2,7 @@
 import React from "react";
 import { Pressable, Text, Image } from 'react-native';
 import {icons} from '../constants';
-import styles from "../styles/components/stopwatch";
+import styles from "../styles/components/stopWatch";
 
 const Stopwatch = ({ type, handleTimer, time }) => {
     if (type == "Pause") {
