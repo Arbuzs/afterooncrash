@@ -34,6 +34,11 @@ export default function Record() {
         setTime(0);
         setTimerStatus('idle');
     };
+    const finishAndSave = () => {
+        console.log('finishAndSave');
+        stopTimer();  // Stop the timer if running
+        navigation.navigate('saveactivity', { recordedTime: formatTime() });  // Navigate and pass time
+    };
 
     useEffect(() => {
         return () => intervalId && clearInterval(intervalId);
@@ -64,7 +69,7 @@ export default function Record() {
                 )}
                 {timerStatus === 'paused' && (
                     <>
-                        <Stopwatch type="Finish" handleTimer={stopTimer} time={formatTime()} />
+                        <Stopwatch type="Finish" handleTimer={finishAndSave} time={formatTime()} />
                         <Stopwatch type="Resume" handleTimer={startTimer} time={formatTime()} />
                     </>
                 )}
