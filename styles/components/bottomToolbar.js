@@ -12,13 +12,14 @@ const styles = StyleSheet.create({
     innerContainer: {
         position: 'absolute',
         bottom: 0,
-        width: '100%',
+        width: '90%',
         height: 70,
+        alignSelf: 'center',
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
         backgroundColor: COLORS.primary_2,
-        borderRadius: 30,
+        borderRadius: 20,
         paddingTop: 3,
     },
     buttonContainer: {

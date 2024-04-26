@@ -10,7 +10,7 @@ const baseScreenStyles = StyleSheet.create({
     },
     baseDataContainer: {
         alignItems: 'center',
-        flex: 10,
+        flex: 15,
         marginTop: 80,
     },
     spacer: {
