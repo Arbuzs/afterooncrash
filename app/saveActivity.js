@@ -6,7 +6,7 @@ const SaveActivity = ({ route }) => {
     const { recordedTime } = route.params; 
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Recorded Time: {route.params.recordedTime}</Text>
+            <Text>Recorded Time: {recordedTime}</Text>
         </View>
     );
 }
