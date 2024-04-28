@@ -40,7 +40,7 @@ export default function Record() {
         console.log('finishAndSave');
         stopTimer();  // Stop the timer if running
         try {
-            navigation.navigate('SaveActivity', { recordedTime: formatTime() });
+            navigation.navigate('save', { recordedTime: formatTime() });
         } catch (error) {
             console.error('Failed to navigate:', error);
         }
