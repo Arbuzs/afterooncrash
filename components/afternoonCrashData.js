@@ -8,11 +8,11 @@ import styles from '../styles/components/afternoonCrashData';
 export default function AfternoonCrashData({dataType}) {
 
     const rectangles = [
-        { level: 1, color: '#44CE1B' },
-        { level: 2, color: '#BBDB44' },
-        { level: 3, color: '#F7E379' },
-        { level: 4, color: '#F2A134' },
-        { level: 5, color: '#E51F1F' },
+        { level: 1, color: COLORS.gradient_1 },
+        { level: 2, color: COLORS.gradient_2 },
+        { level: 3, color: COLORS.gradient_3 },
+        { level: 4, color: COLORS.gradient_4 },
+        { level: 5, color: COLORS.gradient_5 },
       ];
 
     //TODO: Implement graph library

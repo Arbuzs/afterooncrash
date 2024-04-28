@@ -16,20 +16,20 @@ const container = {
 
 const styles = StyleSheet.create({
     container: {
-        ...container,
+      ...container,
     },
     rectangle: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,
-        marginLeft: 10,
-        marginRight: 10,
-      },
-      text: {
-        ...FONT.bold_48,
-        color: 'white',
-      },
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: 10,
+      marginLeft: 10,
+      marginRight: 10,
+    },
+    text: {
+      ...FONT.bold_48,
+      color: COLORS.white,
+    },
 });
 
 export default styles;

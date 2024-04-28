@@ -2,22 +2,22 @@ import { View, Text } from 'react-native';
 
 import Header from '../components/header';
 import BottomToolbar from '../components/bottomToolbar';
+import CrashInfoBottomBox from '../components/crashInfoBottomBox';
 
 import baseScreenStyles from '../styles/screens/baseScreen';
-import AfternoonCrashData from '../components/afternoonCrashData';
 
 import { ENUMS } from '../constants';
 
 
-export default function AfternoonCrashScreen({}) {
+export default function AfternoonCrashClock({}) {
     
-    const dataType = ENUMS.MONTH_OVERVIEW_PERCENTAGE_DATA;
+    const dataType = ENUMS.AFTERNOON_CRASH_CLOCK_WEEK;
 
     return (
         <View style={baseScreenStyles.container}>
             <Header title={dataType} />
             <View style={baseScreenStyles.baseDataContainer}>
-                <AfternoonCrashData dataType={dataType}/>
+                <CrashInfoBottomBox dataType={dataType}/>
             </View>
             <View style={baseScreenStyles.spacer}/>
             <BottomToolbar />

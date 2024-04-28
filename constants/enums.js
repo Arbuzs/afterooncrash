@@ -7,6 +7,8 @@ const ENUMS = {
     WEAK_OVERVIEW_DATA: "Weak Overview",
     MONTH_OVERVIEW_PERCENTAGE_DATA: "Month Overview (%)",
     MONTH_OVERVIEW_DURATION_DATA: "Month Overview (duration)",
+    AFTERNOON_CRASH_CLOCK_WEEK: "Clock (Week)",
+    AFTERNOON_CRASH_CLOCK_DAY: "Clock (Day)",
 }
 
 export { ENUMS };

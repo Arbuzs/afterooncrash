@@ -11,6 +11,11 @@ const COLORS = {
     primary_2: '#3D5A80',
     lightText_2: '#98C1D9',
     lightShade_2: '#E0FBFC',
+    gradient_1: '#44CE1B',
+    gradient_2: '#BBDB44',
+    gradient_3: '#F7E379',
+    gradient_4: '#F2A134',
+    gradient_5: '#E51F1F',
     white: '#FFFFFF',
     black: '#000000',
 };
