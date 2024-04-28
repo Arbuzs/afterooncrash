@@ -38,9 +38,12 @@ export default function Record() {
     };
     const finishAndSave = () => {
         console.log('finishAndSave');
+        
         stopTimer();  // Stop the timer if running
         try {
-            navigation.navigate('save', { recordedTime: formatTime() });
+            navigation.navigate('SaveActivity', {recordedTime: formatTime()});
+            console.log('Navigation object:', navigation);
+
         } catch (error) {
             console.error('Failed to navigate:', error);
         }
