@@ -11,7 +11,7 @@ import { ENUMS } from '../constants';
 
 export default function AfternoonCrashClock({}) {
     
-    const dataType = ENUMS.AFTERNOON_CRASH_CLOCK_WEEK;
+    const dataType = ENUMS.AFTERNOON_CRASH_CLOCK_DAY;
 
     return (
         <View style={baseScreenStyles.container}>
