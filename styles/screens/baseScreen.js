@@ -16,6 +16,8 @@ const baseScreenStyles = StyleSheet.create({
     spacer: {
         flex: 1,
     },
+    
+    
 });
 
 export default baseScreenStyles;
