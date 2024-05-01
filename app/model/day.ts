@@ -25,22 +25,33 @@ class Day {
 
         this.dayOfWeekString = format(date, 'EEEE');
         this.dayOfWeekShortString = format(date, 'EE');
+
+        this.sleep = null;
+        this.afternoonCrash = null;
     }
 
     addSleep(sleep: Sleep) {
         this.sleep = sleep;
     }
 
+    getSleep(): Sleep {
+        return this.sleep;
+    }
+
+    hasSleep(): boolean {
+        return this.sleep !== null;
+    }
+
     addAfternoonCrash(afternoonCrash: AfternoonCrash) {
         this.afternoonCrash = afternoonCrash;
     }
 
-    getSleep() {
-        return this.sleep;
+    getAfternoonCrash(): AfternoonCrash {
+        return this.afternoonCrash;
     }
 
-    getAfternoonCrash() {
-        return this.afternoonCrash;
+    hasAfternoonCrash(): boolean {
+        return this.afternoonCrash !== null;
     }
 }
 
