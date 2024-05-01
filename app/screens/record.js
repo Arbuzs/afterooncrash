@@ -2,12 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, Button } from 'react-native';
-import Stopwatch from '../components/stopwatch';
-import styles from '../styles/components/header';
-import styles3 from '../styles/components/stopwatch'; 
-import styles2 from '../styles/screens/record';
+import Stopwatch from '../../components/stopwatch';
+import styles from '../../styles/components/header';
+import styles3 from '../../styles/components/stopwatch'; 
+import styles2 from '../../styles/screens/record';
+
+import Program from '../model/program';
 
 export default function Record() {
+
     const navigation = useNavigation();
     const [time, setTime] = useState(0);
     const [intervalId, setIntervalId] = useState(null);

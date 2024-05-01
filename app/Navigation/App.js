@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Record from '../record';  
-import SaveActivity from '../saveActivity'; //this will be the new screen 
+import Record from '../screens/record';  
+import SaveActivity from '../screens/saveActivity'; //this will be the new screen 
 
 const Stack = createNativeStackNavigator();
 

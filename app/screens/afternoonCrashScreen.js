@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native';
 
-import Header from '../components/header';
-import BottomToolbar from '../components/bottomToolbar';
+import Header from '../../components/header';
+import BottomToolbar from '../../components/bottomToolbar';
 
-import baseScreenStyles from '../styles/screens/baseScreen';
-import AfternoonCrashData from '../components/afternoonCrashData';
+import baseScreenStyles from '../../styles/screens/baseScreen';
+import AfternoonCrashData from '../../components/afternoonCrashData';
 
-import { ENUMS } from '../constants';
+import { ENUMS } from '../../constants';
 
 
 export default function AfternoonCrashScreen({}) {
