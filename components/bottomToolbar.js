@@ -11,7 +11,7 @@ export default function BottomToolbar() {
             <View style={styles.innerContainer}>
 
                 {/* Home */}
-                <Link href="/summary" style={styles.buttonContainer} asChild>
+                <Link href="/screens/summary" style={styles.buttonContainer} asChild>
                     <Pressable onPress={() => console.log('Home pressed')}>
                         <Image source={icons.homeButton} style={styles.image} />
                         <Text style={styles.text}>Home</Text>
@@ -19,7 +19,7 @@ export default function BottomToolbar() {
                 </Link>
 
                 {/* Record */}
-                <Link href="/record" style={[styles.buttonContainer, styles.recordButtonContainer]} asChild>
+                <Link href="/screens/record" style={[styles.buttonContainer, styles.recordButtonContainer]} asChild>
                     <Pressable onPress={() => console.log('Record pressed')}>
                         <Image source={icons.recordButton} style={[styles.image, styles.recordImage]} />
                         <Text style={[styles.text, styles.recordText]}>Record</Text>

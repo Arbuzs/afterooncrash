@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Image, Text, Pressable } from 'react-native';
 
+import { format } from 'date-fns';
 import { ENUMS, COLORS } from '../constants';
 import styles from '../styles/components/crashInfoBottomBox';
 import baseScreenStyles from '../styles/screens/baseScreen';
@@ -20,6 +21,19 @@ export default function CrashInfoBottomBox({dataType}) {
 
     //Temporary
     var colors = [COLORS.gradient_5, COLORS.gradient_3, COLORS.gradient_3, COLORS.gradient_5, COLORS.gradient_1, COLORS.gradient_2, COLORS.gradient_1 ]
+    
+    var currentDate = new Date();
+
+    var currentDateString = getCurrentDateString(currentDate);
+    var currentWeekDayString = getCurrentWeekDayString(currentDate);
+
+    function getCurrentDateString(currentDate) {
+        return format(currentDate, 'dd.MM.yy');
+    }
+
+    function getCurrentWeekDayString(currentDate) {
+        return format(currentDate, 'EEEE');
+    }    
 
     function fulfillWeekCrashes() {
         for (var i = 0; i < colors.length; i++) {
@@ -57,7 +71,27 @@ export default function CrashInfoBottomBox({dataType}) {
         case ENUMS.AFTERNOON_CRASH_CLOCK_DAY:
             return (
                 <View style={styles.container}>
-
+                    <View style={styles.dateContainer}>
+                        <Text style={styles.dateText}>{currentWeekDayString}</Text>
+                        <View style={baseScreenStyles.spacer}/>
+                        <Text style={styles.dateText}>{currentDateString}</Text>
+                        <View style={styles.spacer}/>
+                        <View style={[styles.weekDayScoreSmall, { backgroundColor: weekCrashes[1].scoreColor }]}>
+                            <Text style={styles.text}>{weekCrashes[1].weekDay}</Text>
+                        </View>
+                    </View>
+                    <View style={styles.crashTimeInfo}>
+                        <Text style={styles.crashTimeInfoLabel}>Crash Started</Text>
+                        <View style={styles.smallSpacer}/>
+                        <Text style={styles.crashTimeInfoValue}>{weekCrashes[1].initialTime}</Text>
+                        <View style={styles.spacer}/>
+                    </View>
+                    <View style={styles.crashTimeInfo}>
+                        <Text style={styles.crashTimeInfoLabel}>Crash Ended</Text>
+                        <View style={styles.smallSpacer}/>
+                        <Text style={styles.crashTimeInfoValue}>{weekCrashes[1].finalTime}</Text>
+                        <View style={styles.spacer}/>
+                    </View>
                 </View>
             );
     }

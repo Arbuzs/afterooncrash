@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Image, Text, Pressable } from 'react-native';
 
-import { ENUMS } from '../constants';
+import { ENUMS, COLORS } from '../constants';
 import styles from '../styles/components/afternoonCrashData';
 
 

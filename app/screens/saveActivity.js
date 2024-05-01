@@ -1,9 +1,9 @@
 // TimeDisplay.js
 import React from 'react';
 import { View, Text } from 'react-native';
-import SaveActivity from '../components/saveActivity';
-import Header from '../components/header';
-import baseScreen from '../styles/screens/baseScreen';
+import SaveActivity from '../../components/saveActivity';
+import Header from '../../components/header';
+import baseScreen from '../../styles/screens/baseScreen';
 
 export default function Savectivity(){
    // const { recordedTime } = route.params; 
