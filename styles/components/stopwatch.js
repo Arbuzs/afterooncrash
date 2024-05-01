@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
       backgroundColor: COLORS.primary_2,
     },
     resumeButton: {
-      backgroundColor: COLORS.lightText_2,
+      backgroundColor: COLORS.lightShade_2,
       stroke: COLORS.mainText_1,
       borderWidth: 1, // This is equivalent to 'stroke-width' in CSS for SVGs
       borderColor: COLORS.mainText_1,
