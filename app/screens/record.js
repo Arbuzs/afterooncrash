@@ -9,12 +9,30 @@ import styles2 from '../../styles/screens/record';
 
 import Program from '../model/program';
 
-export default function Record() {
+import { differenceInSeconds, parse } from 'date-fns';
 
-    const navigation = useNavigation();
-    const [time, setTime] = useState(0);
+export default function Record() {
+    var seconds = 0;
+    var timeStatus = 'idle';
+
+    const checkPreviousTime = () => {
+        const program = Program.getInstance();
+        params = program.getTempParams();
+        if (params != null) {
+            if (params['recordedTimeResume']) {
+                const timeString = params['recordedTimeResume'];
+                const parsedTime = parse(timeString, 'HH:mm:ss', new Date());
+                seconds = differenceInSeconds(parsedTime, new Date().setHours(0, 0, 0, 0));
+                timeStatus = 'paused';
+            }
+        }
+    }
+
+    checkPreviousTime();
+    const [time, setTime] = useState(seconds);
+ 
     const [intervalId, setIntervalId] = useState(null);
-    const [timerStatus, setTimerStatus] = useState('idle'); // 'idle', 'running', 'paused'
+    const [timerStatus, setTimerStatus] = useState(timeStatus); // 'idle', 'running', 'paused'
 
     const startTimer = () => {
         if (!intervalId) {
@@ -82,8 +100,8 @@ export default function Record() {
                 )}
                 {timerStatus === 'paused' && (
                     <>
-                        <Stopwatch type="Finish" time={formatTime()} />
                         <Stopwatch type="Resume" handleTimer={startTimer} time={formatTime()} />
+                        <Stopwatch type="Finish" time={formatTime()} />
                     </>
                 )}
             </View>

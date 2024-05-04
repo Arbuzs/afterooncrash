@@ -15,6 +15,9 @@ var crashEnd = null;
 var notes = null;
 var crashIntensity = null;
 
+var recordedTime = null;
+
+
 const setCrashIntensity = (intensity, refs) => {
     crashIntensity = intensity;
 
@@ -38,14 +41,25 @@ const submit = () => {
         var afternoonCrash = new AfternoonCrash(crashStart, crashEnd, crashIntensity, notes);
         var program = Program.getInstance();
         var currentDay = program.getCurrentUser().getCurrentDay();
-        currentDay.addAfternoonCrash(afternoonCrash)
+        currentDay.setAfternoonCrash(afternoonCrash)
     }
+    crashStart = null;
+    crashEnd = null;
+    notes = null;
+    crashIntensity = null;
     console.log("Afternoon Crash Added")
     console.log(currentDay.getAfternoonCrash())
 }
 
+const resumeCounter = () => {
+    const params = {'recordedTimeResume': recordedTime}
+    var program = Program.getInstance();
+    program.setTempParams(params)
+};
+
 export default function SaveActivityComponent({ data }) {
 
+    recordedTime = data['recordedTime']
     crashStart = parse(data['crashStart'], 'HH:mm:ss', new Date());
     crashEnd = parse(data['crashEnd'], 'HH:mm:ss', new Date());
 
@@ -118,9 +132,11 @@ export default function SaveActivityComponent({ data }) {
                 </View>
             </View>
             <View style={styles.row}>
-                <Pressable style={[stopwatch.button,stopwatch.resumeButton]}>
-                    <Text style={stopwatch.resumeText}>Resume</Text>
-                </Pressable>
+                <Link href="/screens/record" style={[stopwatch.button,stopwatch.resumeButton]} asChild>
+                    <Pressable onPress={resumeCounter}>
+                        <Text style={stopwatch.resumeText}>Resume</Text>
+                    </Pressable>
+                </Link>
                 <Link href="/screens/summary" asChild>
                     <Pressable style={stopwatch.button} onPress={submit}>
                         <Text style={stopwatch.buttonText}>Save</Text>
@@ -128,7 +144,7 @@ export default function SaveActivityComponent({ data }) {
                 </Link>
             </View>
             <Link href="/screens/summary" asChild>
-                <Pressable style={styles.row} onPress={console.log("Crash discarted")}>
+                <Pressable style={styles.row}>
                     <Text style={styles.discardText}>Discard</Text>
                 </Pressable>
             </Link>

@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
 
 
     row: {
+        minHeight: 20,
         flexDirection: 'row',
         justifyContent: 'space-around',
         width: '100%',

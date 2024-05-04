@@ -42,7 +42,7 @@ class Day {
         return this.sleep !== null;
     }
 
-    addAfternoonCrash(afternoonCrash: AfternoonCrash) {
+    setAfternoonCrash(afternoonCrash: AfternoonCrash) {
         this.afternoonCrash = afternoonCrash;
     }
 
