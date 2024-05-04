@@ -80,6 +80,8 @@ const styles = StyleSheet.create({
     intensityButton: {
         width: 60,
         height: 60,
+        borderWidth: 2,
+        borderColor: COLORS.white,
         borderRadius: 30,
         justifyContent: 'center',
         alignItems: 'center',
@@ -106,7 +108,14 @@ const styles = StyleSheet.create({
         backgroundColor:'transparent',
         marginBottom: 40,
     },
-    
+    input: {
+        height: 100,
+        paddingHorizontal: 10,
+        paddingTop: 5,
+        marginBottom: 10,
+        textAlignVertical: 'top',
+        flexWrap: 'wrap',
+    },
     discardText: {
         ...FONT.mainText_1,
         color: COLORS.secondary_2,

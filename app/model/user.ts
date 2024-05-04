@@ -21,18 +21,18 @@ class User {
         this.days.push(day);
     }
 
-    getNumberOfDays() {
+    getNumberOfDays(): number {
         return this.days.length;
     }
 
-    getCurrentDay() {
+    getCurrentDay(): Day {
         if (this.getNumberOfDays() === 0) {
             return null;
         }
         return this.days[this.days.length - 1];
     }
 
-    getSpecificDay(date: Date) {
+    getSpecificDay(date: Date): Day {
         const formattedDate = format(date, 'dd/MM/yyyy');
         return this.days.find(day => day.dateString === formattedDate);
     }

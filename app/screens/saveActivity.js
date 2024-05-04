@@ -1,20 +1,23 @@
 // TimeDisplay.js
 import React from 'react';
 import { View, Text } from 'react-native';
-import SaveActivity from '../../components/saveActivity';
+import SaveActivityComponent from '../../components/saveActivityComponent';
 import Header from '../../components/header';
 import baseScreen from '../../styles/screens/baseScreen';
+import Program from '../model/program';
 
-export default function Savectivity(){
-   // const { recordedTime } = route.params; 
-   return (
-    <View style={baseScreen.container}>
-    <Header title="Save Activity"/>
-    <View style={baseScreen.spacer}>
-    
-    <SaveActivity/>
-    </View>
-    </View>
+export default function SaveActivity(){
+   // const { recordedTime } = route.params;
+     var program = Program.getInstance();
+     var params = program.getTempParams();
+
+     return (
+          <View style={baseScreen.container}>
+               <Header title="Save Activity"/>
+               <View style={baseScreen.spacer}>
+                    <SaveActivityComponent data={params}/>
+               </View>
+          </View>
     
   );
        /* <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>

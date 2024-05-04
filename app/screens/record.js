@@ -39,19 +39,19 @@ export default function Record() {
         setTime(0);
         setTimerStatus('idle');
     };
-    const finishAndSave = () => {
-        console.log('finishAndSave');
+    // const finishAndSave = () => {
+    //     console.log('finishAndSave');
         
-        stopTimer();  // Stop the timer if running
-        try {
-            navigation.navigate('SaveActivity', {recordedTime: formatTime()});
-            console.log('Navigation object:', navigation);
+    //     stopTimer();  // Stop the timer if running
+    //     try {
+    //         navigation.navigate('SaveActivity', {recordedTime: formatTime()});
+    //         console.log('Navigation object:', navigation);
 
-        } catch (error) {
-            console.error('Failed to navigate:', error);
-        }
-         // Navigate and pass time
-    };
+    //     } catch (error) {
+    //         console.error('Failed to navigate:', error);
+    //     }
+    //      // Navigate and pass time
+    // };
 
     useEffect(() => {
         return () => intervalId && clearInterval(intervalId);
@@ -82,7 +82,7 @@ export default function Record() {
                 )}
                 {timerStatus === 'paused' && (
                     <>
-                        <Stopwatch type="Finish" handleTimer={finishAndSave} time={formatTime()} />
+                        <Stopwatch type="Finish" time={formatTime()} />
                         <Stopwatch type="Resume" handleTimer={startTimer} time={formatTime()} />
                     </>
                 )}

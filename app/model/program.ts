@@ -1,6 +1,9 @@
 import { isSameDay } from 'date-fns';
 import User from "./user";
 
+type Dict = {
+    [key: string]: any;
+}
 
 class Program {
 
@@ -8,12 +11,14 @@ class Program {
     #currentUser: User | null;
     #currentTime: Date;
     #lastDate: Date;
+    #tempParams: Dict;
 
 
     private constructor() {
         this.#currentTime = new Date();
         this.#currentUser = null;
         this.#lastDate = new Date();
+        this.#tempParams = null;
 
         // Update currentTime every second
         setInterval(() => {
@@ -51,6 +56,16 @@ class Program {
 
     getCurrentUser(): User | null {
         return this.#currentUser;
+    }
+
+    setTempParams(params: Dict) {
+        this.#tempParams = params;
+    }
+
+    getTempParams() {
+        const temp = this.#tempParams;
+        this.#tempParams = null;
+        return temp;
     }
 }
 
