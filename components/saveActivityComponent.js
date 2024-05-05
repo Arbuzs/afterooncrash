@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Platform } from 'react-native';
 import { StyleSheet, View, Image, Text, Pressable, TextInput } from 'react-native';
 import { Link } from 'expo-router';
 
@@ -21,15 +22,28 @@ var recordedTime = null;
 const setCrashIntensity = (intensity, refs) => {
     crashIntensity = intensity;
 
-    // Deselect all other buttons
-    Object.keys(refs).forEach((key) => {
-        if (key != intensity) {
-            refs[key].setNativeProps({ style: [styles.intensityButton, { borderColor: COLORS.white }] });
-        }
-    });
+    if (Platform.OS === 'web') {
+        // Deselect all other buttons
+        Object.keys(refs).forEach((key) => {
+            console.log(refs)
+            if (key != intensity) {
+                refs[key].style.borderColor = COLORS.white;
+            }
+        });
+        // Apply style to the pressed button
+        refs[intensity].style.borderColor = COLORS.black;
+    } else {
+        console.log(refs)
+        // Deselect all other buttons
+        Object.keys(refs).forEach((key) => {
+            if (key != intensity) {
+                refs[key].setNativeProps({ style: [styles.intensityButton, { borderColor: COLORS.white }] });
+            }
+        });
 
-    // Apply style to the pressed button
-    refs[intensity].setNativeProps({ style: [styles.intensityButton, { borderColor: COLORS.black }] });
+        // Apply style to the pressed button
+        refs[intensity].setNativeProps({ style: [styles.intensityButton, { borderColor: COLORS.black }] });
+    }
 };
 
 const handleTextChange = (newText) => {
