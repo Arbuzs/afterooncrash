@@ -25,7 +25,6 @@ const setCrashIntensity = (intensity, refs) => {
     if (Platform.OS === 'web') {
         // Deselect all other buttons
         Object.keys(refs).forEach((key) => {
-            console.log(refs)
             if (key != intensity) {
                 refs[key].style.borderColor = COLORS.white;
             }
@@ -33,7 +32,6 @@ const setCrashIntensity = (intensity, refs) => {
         // Apply style to the pressed button
         refs[intensity].style.borderColor = COLORS.black;
     } else {
-        console.log(refs)
         // Deselect all other buttons
         Object.keys(refs).forEach((key) => {
             if (key != intensity) {
@@ -62,7 +60,8 @@ const submit = () => {
     notes = null;
     crashIntensity = null;
     console.log("Afternoon Crash Added")
-    console.log(currentDay.getAfternoonCrash())
+    // console.log(program.getCurrentUser().days)
+    // console.log(currentDay.getAfternoonCrash())
 }
 
 const resumeCounter = () => {
