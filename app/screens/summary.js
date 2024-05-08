@@ -22,16 +22,8 @@ export default function Summary() {
     var program = Program.getInstance();
     var user = program.getCurrentUser();
 
-    console.log(user.days.length);
-    console.log("\n");
+    user.printUserDays();
 
-    for (i = 0; i < user.days.length; i++) {
-        // console.log(user.days[i]);
-        console.log("Day: " + user.days[i].dateString + "- Sleep: " + user.days[i].sleep.durationStringShort + "- Afternoon Crash: " + user.days[i].afternoonCrash.durationStringShort);
-        console.log("Day: " + user.days[i].dateString + " - Crash Start: " + user.days[i].afternoonCrash.startTimeStringShort + " - Crash End: " + user.days[i].afternoonCrash.endTimeStringShort + " - Crash Duration: " + user.days[i].afternoonCrash.durationStringShort + " - Crash Score: " + user.days[i].afternoonCrash.crashScore);
-        console.log("Day: " + user.days[i].dateString + " - Sleep Start: " + user.days[i].sleep.startTimeStringShort + " - Sleep End: " + user.days[i].sleep.endTimeStringShort + " - Sleep Duration: " + user.days[i].sleep.durationStringShort + " - Sleep Score: " + user.days[i].sleep.sleepScore);
-        console.log("\n");
-    }
     // console.log(user.name);
     // console.log(user.email);
     // console.log(user.password);
