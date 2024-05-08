@@ -3,6 +3,9 @@ import { Redirect } from 'expo-router';
 import User from './model/user';
 import Program from './model/program';
 
+const generateRandomDays = true;
+const startDate = new Date(2024, 4, 1);
+
 //Now use screens/{name_of_screen}
 const Home = () => {
 
@@ -20,7 +23,7 @@ const Home = () => {
 function signUp(id, name, email, password) {
     var user = new User(id, name, email, password)
     var program = Program.getInstance()
-    program.setCurrentUser(user);
+    program.setCurrentUser(user, generate=generateRandomDays, startDate);
 }
 
 export default Home;

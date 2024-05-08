@@ -9,6 +9,9 @@ import baseScreenStyles from '../../styles/screens/baseScreen';
 import { ENUMS } from '../../constants';
 import Program from '../model/program';
 
+import Clock from '../../components/clock';
+import ClockTimeInterval from '../../components/clockTimeInterval';
+
 
 export default function AfternoonCrashClock({}) {
     
@@ -21,10 +24,14 @@ export default function AfternoonCrashClock({}) {
     return (
         <View style={baseScreenStyles.container}>
             <Header title={dataType} />
-            <View style={baseScreenStyles.baseDataContainer}>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <Clock />
+                <ClockTimeInterval />
+            </View>
+            {/* <View style={baseScreenStyles.baseDataContainer}>
                 <CrashInfoBottomBox dataType={dataType}/>
             </View>
-            <View style={baseScreenStyles.spacer}/>
+            <View style={baseScreenStyles.spacer}/> */}
             <BottomToolbar />
         </View>
     )

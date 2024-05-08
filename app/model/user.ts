@@ -1,5 +1,7 @@
 import Day from './day';
 import { eachDayOfInterval, isSameDay, format } from 'date-fns';
+import AfternoonCrash from './afternoonCrash';
+import Sleep from './sleep';
 
 
 class User {
@@ -69,6 +71,60 @@ class User {
             }
         });
     }
+
+    generateRandomDays(startDate: Date) {
+        let currentDate = startDate;
+        let today = new Date();
+    
+        while (currentDate <= today) {
+            const maxAfternoonCrashDuration = 300; // Maximum duration in minutes (5 hours)
+            const minAfternoonCrashDuration = 30; // Minimum duration in minutes
+    
+            // Generate random afternoon crash start time between 12:00 PM and 4:59 PM
+            const afternoonCrashStartHour = Math.floor(Math.random() * 5) + 12;
+            const afternoonCrashStartMinute = Math.floor(Math.random() * 60);
+            const afternoonCrashStart = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), afternoonCrashStartHour, afternoonCrashStartMinute, 0);
+    
+            const afternoonCrashDuration = (Math.floor(Math.random() * (maxAfternoonCrashDuration - minAfternoonCrashDuration)) + minAfternoonCrashDuration); // Random duration between 30 to 300 minutes
+    
+            // Generate random afternoon crash end time between start time and up to 5 hours later
+            const afternoonCrashEnd = new Date(afternoonCrashStart.getTime() + afternoonCrashDuration * 60000);
+    
+            // Generate random sleep start time between 08:00 PM and 11:59 PM
+            const sleepStartHour = Math.floor(Math.random() * 4) + 20;
+            const sleepStartMinute = Math.floor(Math.random() * 60);
+            const sleepStart = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), sleepStartHour, sleepStartMinute, 0);
+    
+            // Generate random duration for sleep (between 2 to 9 hours)
+            const minSleepDuration = 120; // 2 hours in minutes
+            const maxSleepDuration = 540; // 9 hours in minutes
+            const sleepDuration = (Math.floor(Math.random() * (maxSleepDuration - minSleepDuration)) + minSleepDuration); // Random duration between 2 to 9 hours
+    
+            // Calculate sleep end time
+            const sleepEnd = new Date(sleepStart.getTime() + sleepDuration * 60000);
+    
+            // Generate random scores between 1 and 5 for afternoon crash and sleep
+            const afternoonCrashScore = Math.round((afternoonCrashDuration / maxAfternoonCrashDuration) * 5);
+            const sleepScore = Math.round((sleepDuration / maxSleepDuration) * 5);
+    
+            // Ensure scores are between 1 and 5
+            const clampedAfternoonCrashScore = Math.max(1, Math.min(5, afternoonCrashScore));
+            const clampedSleepScore = Math.max(1, Math.min(5, sleepScore));
+    
+            // Create new day with random afternoon crash and sleep
+            const newDay = new Day(currentDate,
+                new AfternoonCrash(afternoonCrashStart, afternoonCrashEnd, clampedAfternoonCrashScore, "Test"),
+                new Sleep(sleepStart, sleepEnd, clampedSleepScore)
+            );
+    
+            // Add the new day to the user
+            this.addDay(newDay);
+    
+            // Move to next day
+            currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + 1);
+        }
+    }
+    
 }
 
 export default User;

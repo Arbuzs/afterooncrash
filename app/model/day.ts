@@ -16,7 +16,7 @@ class Day {
     sleep: Sleep;
     afternoonCrash: AfternoonCrash;
 
-    constructor(date: Date) {
+    constructor(date: Date, afternoonCrash: AfternoonCrash | null = null, sleep: Sleep | null = null) {
         this.date = date;
 
         this.dateString = format(date, 'dd/MM/yyyy');
@@ -26,8 +26,8 @@ class Day {
         this.dayOfWeekString = format(date, 'EEEE');
         this.dayOfWeekShortString = format(date, 'EE');
 
-        this.sleep = null;
-        this.afternoonCrash = null;
+        this.sleep = sleep;
+        this.afternoonCrash = afternoonCrash;
     }
 
     addSleep(sleep: Sleep) {

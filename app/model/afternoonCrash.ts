@@ -34,7 +34,7 @@ class AfternoonCrash {
         this.durationString = format(new Date(0, 0, 0, hours, minutes, seconds), 'HH:mm:ss');
 
         this.startTimeStringShort = format(startTime, 'HH:mm');
-        this.endTimeStringShort = format(startTime, 'HH:mm');
+        this.endTimeStringShort = format(endTime, 'HH:mm');
         this.durationStringShort = format(new Date(0, 0, 0, hours, minutes, seconds), 'HH:mm');
 
         this.crashScore = crashScore;

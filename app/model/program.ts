@@ -49,9 +49,13 @@ class Program {
         return this.#currentTime;
     }
 
-    setCurrentUser(user: User) {
+    setCurrentUser(user: User, generate = false, startDate = null) {
         this.#currentUser = user;
-        this.#currentUser.populateDays(this.#currentTime);
+        if (generate)
+            this.#currentUser.generateRandomDays(startDate);
+        else
+            this.#currentUser.populateDays(this.#currentTime);
+
     }
 
     getCurrentUser(): User | null {
