@@ -59,7 +59,8 @@ const submit = () => {
     crashEnd = null;
     notes = null;
     crashIntensity = null;
-    console.log("Afternoon Crash Added")
+    console.log("Afternoon Crash Added");
+    console.log("\n");
     // console.log(program.getCurrentUser().days)
     // console.log(currentDay.getAfternoonCrash())
 }
