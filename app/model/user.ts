@@ -36,7 +36,8 @@ class User {
 
     getSpecificDay(date: Date): Day {
         const formattedDate = format(date, 'dd/MM/yyyy');
-        return this.days.find(day => day.dateString === formattedDate);
+        const specificDay = this.days.find(day => day.dateString === formattedDate);
+        return specificDay || null;
     }
 
     /**

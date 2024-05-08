@@ -58,6 +58,12 @@ const FONT = {
         fontWeight: 'bold',
         fontStyle: 'normal',
     },
+    base_20: {
+        fontFamily: "Roboto",
+        fontSize: 16,
+        fontWeight: 'normal',
+        fontStyle: 'normal',
+    },
     base_16: {
         fontFamily: "Roboto",
         fontSize: 16,

@@ -38,7 +38,7 @@ export default function AfternoonCrashScreen({}) {
         )
     }
 
-    else if (dataType == ENUMS.MONTH_OVERVIEW_DURATION_DATA || dataType == ENUMS.CALENDAR_DATA) {
+    else if (dataType == ENUMS.MONTH_OVERVIEW_DURATION_DATA || dataType == ENUMS.MONTH_CALENDAR_DATA) {
         return (
             <View style={baseScreenStyles.container}>
                 <Header title={dataType} />

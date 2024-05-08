@@ -54,15 +54,15 @@ export default function TrackToolbar({ type }) {
                             break;
             
                         case 'M':
-                            params = {"periodContainerPressed": true, "afternoonCrashDataType": ENUMS.MONTH_OVERVIEW_DURATION_DATA};
+                            params = {"periodContainerPressed": true, "afternoonCrashDataType": ENUMS.MONTH_CALENDAR_DATA};
                             break;
             
                         case '6M':
-                            params = {"periodContainerPressed": true, "afternoonCrashDataType": ENUMS.CALENDAR_DATA};
+                            params = {"periodContainerPressed": true, "afternoonCrashDataType": ENUMS.MONTH_CALENDAR_DATA};
                             break;
             
                         case 'Y':
-                            params = {"periodContainerPressed": true, "afternoonCrashDataType": ENUMS.CALENDAR_DATA};
+                            params = {"periodContainerPressed": true, "afternoonCrashDataType": ENUMS.MONTH_CALENDAR_DATA};
                             break;
                     }
                     program.setTempParams(params);
