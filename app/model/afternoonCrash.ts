@@ -50,15 +50,15 @@ class AfternoonCrash {
     getCrashColor() {
         switch (this.crashScore) {
             case 1:
-                return COLORS.gradient_5;
+                return COLORS.gradient_1;
             case 2:
-                return COLORS.gradient_4;
+                return COLORS.gradient_2;
             case 3:
                 return COLORS.gradient_3;
             case 4:
-                return COLORS.gradient_2;
+                return COLORS.gradient_4;
             case 5:
-                return COLORS.gradient_1;
+                return COLORS.gradient_5;
         }
     }
 }

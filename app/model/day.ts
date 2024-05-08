@@ -8,6 +8,7 @@ class Day {
 
     date: Date;
     dateString: string;
+    dateStringDot: string;
     dayOfMonth: number;
     dayOfWeekNumber: number;
     dayOfWeekString: string;
@@ -20,6 +21,7 @@ class Day {
         this.date = date;
 
         this.dateString = format(date, 'dd/MM/yyyy');
+        this.dateStringDot = format(date, 'dd.MM.yy');
         this.dayOfMonth = parseInt(format(date, 'd'));
         this.dayOfWeekNumber = parseInt(format(date, 'i'));
 

@@ -9,6 +9,9 @@ import Program from '../app/model/program';
 
 
 export default function CrashInfoBottomBox({dataType}) {
+
+    var program = Program.getInstance();
+    var user = program.getCurrentUser();
     
     switch (dataType) {
 
@@ -23,9 +26,6 @@ export default function CrashInfoBottomBox({dataType}) {
                 { weekDay: 'Sa', scoreColor: COLORS.grey, initialTime: "", finalTime: "" },
                 { weekDay: 'Su', scoreColor: COLORS.grey, initialTime: "", finalTime: "" },
             ]
-
-            var program = Program.getInstance();
-            var user = program.getCurrentUser();
 
             var days = user.getDaysFromCurrentWeek();
             user.printDays(days);
@@ -65,27 +65,45 @@ export default function CrashInfoBottomBox({dataType}) {
             );
 
         case ENUMS.AFTERNOON_CRASH_CLOCK_DAY:
+
+            var currentDay = user.getCurrentDay();
+            var scoreColor;
+            var crashStart;
+            var crashEnd;
+
+            if (currentDay.hasAfternoonCrash()) {
+                var afternoonCrash = currentDay.getAfternoonCrash();
+                scoreColor = afternoonCrash.getCrashColor();
+                crashStart = afternoonCrash.startTimeStringShort;
+                crashEnd = afternoonCrash.endTimeStringShort;
+            }
+            else {
+                scoreColor = COLORS.grey;
+                crashStart = "----";
+                crashEnd = "----";
+            }
+
             return (
                 <View style={styles.container}>
                     <View style={styles.dateContainer}>
-                        <Text style={styles.dateText}>{currentWeekDayString}</Text>
+                        <Text style={styles.dateText}>{currentDay.dayOfWeekString}</Text>
                         <View style={baseScreenStyles.spacer}/>
-                        <Text style={styles.dateText}>{currentDateString}</Text>
+                        <Text style={styles.dateText}>{currentDay.dateStringDot}</Text>
                         <View style={styles.spacer}/>
-                        <View style={[styles.weekDayScoreSmall, { backgroundColor: weekCrashes[1].scoreColor }]}>
-                            <Text style={styles.text}>{weekCrashes[1].weekDay}</Text>
+                        <View style={[styles.weekDayScoreSmall, { backgroundColor: scoreColor }]}>
+                            <Text style={styles.text}>{currentDay.afternoonCrash.crashScore}</Text>
                         </View>
                     </View>
                     <View style={styles.crashTimeInfo}>
                         <Text style={styles.crashTimeInfoLabel}>Crash Started</Text>
                         <View style={styles.smallSpacer}/>
-                        <Text style={styles.crashTimeInfoValue}>{weekCrashes[1].initialTime}</Text>
+                        <Text style={styles.crashTimeInfoValue}>{crashStart}</Text>
                         <View style={styles.spacer}/>
                     </View>
                     <View style={styles.crashTimeInfo}>
                         <Text style={styles.crashTimeInfoLabel}>Crash Ended</Text>
                         <View style={styles.smallSpacer}/>
-                        <Text style={styles.crashTimeInfoValue}>{weekCrashes[1].finalTime}</Text>
+                        <Text style={styles.crashTimeInfoValue}>{crashEnd}</Text>
                         <View style={styles.spacer}/>
                     </View>
                 </View>
