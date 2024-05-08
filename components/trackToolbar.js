@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import { Image, Text, View, Pressable } from 'react-native';
+import { Link } from 'expo-router';
 
 import { icons, ENUMS } from '../constants';
 import styles from '../styles/components/trackToolbar';
+import Program from '../app/model/program';
 
 import { COLORS } from '../constants';
 
 export default function TrackToolbar({ type }) {
-    const [selectedPeriod, setSelectedPeriod] = useState('D');
-
-    const handlePeriodPress = (period) => {
-        console.log(`${period} pressed`);
-        setSelectedPeriod(period);
-    };
 
     switch (type) {
         case ENUMS.HEART_RATE_BUTTON:
@@ -32,59 +28,111 @@ export default function TrackToolbar({ type }) {
             );
 
         case ENUMS.AFTERNOON_CRASH_BUTTON:
+
+            const [selectedPeriod, setSelectedPeriod] = useState('D');
+
+            var href;
+            var params;
+            var program = Program.getInstance();
+        
+            href = "screens/afternoonCrashClock";
+            params = program.getTempParams(reset=false);
+        
+            if (params['periodContainerPressed'] == false) {
+                params = {"afternoonCrashDataType": ENUMS.AFTERNOON_CRASH_CLOCK_DAY};
+                program.setTempParams(params);
+            }
+        
+            const handlePeriodPress = (period) => {
+                const currentSelectedPeriod = selectedPeriod || '';
+            
+                if (currentSelectedPeriod !== period) {
+                    switch (period) {
+                        case 'D':
+                            href = "screens/afternoonCrashClock";
+                            params = {"periodContainerPressed": true, "afternoonCrashDataType": ENUMS.AFTERNOON_CRASH_CLOCK_DAY};
+                            break;
+            
+                        case 'W':
+                            href = "screens/afternoonCrashClock";
+                            params = {"periodContainerPressed": true, "afternoonCrashDataType": ENUMS.AFTERNOON_CRASH_CLOCK_WEEK};
+                            break;
+            
+                        case 'M':
+                            href = "screens/afternoonCrashScreen";
+                            params = {"periodContainerPressed": true, "afternoonCrashDataType": ENUMS.MONTH_OVERVIEW_DURATION_DATA};
+                            break;
+            
+                        case '6M':
+                            href = "screens/afternoonCrashScreen";
+                            params = {"periodContainerPressed": true, "afternoonCrashDataType": ENUMS.CALENDAR_DATA};
+                            break;
+            
+                        case 'Y':
+                            href = "screens/afternoonCrashScreen";
+                            params = {"periodContainerPressed": true, "afternoonCrashDataType": ENUMS.CALENDAR_DATA};
+                            break;
+                    }
+                    program.setTempParams(params);
+                    setSelectedPeriod(period);
+                }
+            };
+
             return (
-                <Pressable style={styles.afternoonCrashContainer} onPress={() => console.log('Afternoon Crash pressed')}>
-                    <Text style={styles.text}>Afternoon Crash</Text>
-                    <Image source={icons.arrow} style={styles.arrow} />
-                    <View style={styles.periodContainer}>
-                        <Pressable
-                            style={[
-                                styles.period, styles.firstPeriod,
-                                { backgroundColor: selectedPeriod === 'D' ? COLORS.white : COLORS.secondary_2 },
-                            ]}
-                            onPress={() => handlePeriodPress('D')}
-                        >
-                            <Text style={[styles.periodText, { color: selectedPeriod === 'D' ? COLORS.black : COLORS.white }]}>D</Text>
-                        </Pressable>
-                        <Pressable
-                            style={[
-                                styles.period,
-                                { backgroundColor: selectedPeriod === 'W' ? COLORS.white : COLORS.secondary_2 },
-                            ]}
-                            onPress={() => handlePeriodPress('W')}
-                        >
-                            <Text style={[styles.periodText, { color: selectedPeriod === 'W' ? COLORS.black : COLORS.white }]}>W</Text>
-                        </Pressable>
-                        <Pressable
-                            style={[
-                                styles.period,
-                                { backgroundColor: selectedPeriod === 'M' ? COLORS.white : COLORS.secondary_2 },
-                            ]}
-                            onPress={() => handlePeriodPress('M')}
-                        >
-                            <Text style={[styles.periodText, { color: selectedPeriod === 'M' ? COLORS.black : COLORS.white }]}>M</Text>
-                        </Pressable>
-                        <Pressable
-                            style={[
-                                styles.period,
-                                { backgroundColor: selectedPeriod === '6M' ? COLORS.white : COLORS.secondary_2 },
-                            ]}
-                            onPress={() => handlePeriodPress('6M')}
-                        >
-                            <Text style={[styles.periodText, { color: selectedPeriod === '6M' ? COLORS.black : COLORS.white }]}>6M</Text>
-                        </Pressable>
-                        <Pressable
-                            style={[
-                                styles.period, styles.lastPeriod,
-                                { backgroundColor: selectedPeriod === 'Y' ? COLORS.white : COLORS.secondary_2 },
-                            ]}
-                            onPress={() => handlePeriodPress('Y')}
-                        >
-                            <Text style={[styles.periodText, { color: selectedPeriod === 'Y' ? COLORS.black : COLORS.white }]}>Y</Text>
-                        </Pressable>
-                    </View>
-                    <View style={styles.graphContainer}/>
-                </Pressable>
+                <Link href={href} asChild>
+                    <Pressable style={styles.afternoonCrashContainer} onPress={() => console.log('Afternoon Crash pressed')}>
+                        <Text style={styles.text}>Afternoon Crash</Text>
+                        <Image source={icons.arrow} style={styles.arrow} />
+                        <View style={styles.periodContainer}>
+                            <Pressable
+                                style={[
+                                    styles.period, styles.firstPeriod,
+                                    { backgroundColor: selectedPeriod === 'D' ? COLORS.white : COLORS.secondary_2 },
+                                ]}
+                                onPress={() => handlePeriodPress('D')}
+                            >
+                                <Text style={[styles.periodText, { color: selectedPeriod === 'D' ? COLORS.black : COLORS.white }]}>D</Text>
+                            </Pressable>
+                            <Pressable
+                                style={[
+                                    styles.period,
+                                    { backgroundColor: selectedPeriod === 'W' ? COLORS.white : COLORS.secondary_2 },
+                                ]}
+                                onPress={() => handlePeriodPress('W')}
+                            >
+                                <Text style={[styles.periodText, { color: selectedPeriod === 'W' ? COLORS.black : COLORS.white }]}>W</Text>
+                            </Pressable>
+                            <Pressable
+                                style={[
+                                    styles.period,
+                                    { backgroundColor: selectedPeriod === 'M' ? COLORS.white : COLORS.secondary_2 },
+                                ]}
+                                onPress={() => handlePeriodPress('M')}
+                            >
+                                <Text style={[styles.periodText, { color: selectedPeriod === 'M' ? COLORS.black : COLORS.white }]}>M</Text>
+                            </Pressable>
+                            <Pressable
+                                style={[
+                                    styles.period,
+                                    { backgroundColor: selectedPeriod === '6M' ? COLORS.white : COLORS.secondary_2 },
+                                ]}
+                                onPress={() => handlePeriodPress('6M')}
+                            >
+                                <Text style={[styles.periodText, { color: selectedPeriod === '6M' ? COLORS.black : COLORS.white }]}>6M</Text>
+                            </Pressable>
+                            <Pressable
+                                style={[
+                                    styles.period, styles.lastPeriod,
+                                    { backgroundColor: selectedPeriod === 'Y' ? COLORS.white : COLORS.secondary_2 },
+                                ]}
+                                onPress={() => handlePeriodPress('Y')}
+                            >
+                                <Text style={[styles.periodText, { color: selectedPeriod === 'Y' ? COLORS.black : COLORS.white }]}>Y</Text>
+                            </Pressable>
+                        </View>
+                        <View style={styles.graphContainer}/>
+                    </Pressable>
+                </Link>
             );
     }
 }

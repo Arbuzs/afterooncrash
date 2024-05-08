@@ -49,7 +49,10 @@ export default function Summary() {
     // console.log(currentDay.getSleep().sleepScore);
     // console.log(currentDay.getSleep().durationString);
 
-    
+    var program = Program.getInstance();
+    params = {"periodContainerPressed": false};
+    program.setTempParams(params);
+
     return (
         <View style={baseScreenStyles.container}>
             <Header title="Summary" />

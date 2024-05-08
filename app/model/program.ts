@@ -62,9 +62,10 @@ class Program {
         this.#tempParams = params;
     }
 
-    getTempParams() {
+    getTempParams(reset=true) {
         const temp = this.#tempParams;
-        this.#tempParams = null;
+        if (reset)
+            this.#tempParams = null;
         return temp;
     }
 }

@@ -7,11 +7,16 @@ import baseScreenStyles from '../../styles/screens/baseScreen';
 import AfternoonCrashData from '../../components/afternoonCrashData';
 
 import { ENUMS } from '../../constants';
+import Program from '../model/program';
 
 
 export default function AfternoonCrashScreen({}) {
     
-    const dataType = ENUMS.MONTH_OVERVIEW_PERCENTAGE_DATA;
+    var program = Program.getInstance();
+    var params = program.getTempParams();
+    console.log(params);
+
+    const dataType = params['afternoonCrashDataType'];
 
     return (
         <View style={baseScreenStyles.container}>
