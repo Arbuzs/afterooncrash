@@ -1,5 +1,5 @@
 import Day from './day';
-import { eachDayOfInterval, isSameDay, format } from 'date-fns';
+import { eachDayOfInterval, isSameDay, startOfWeek, endOfWeek, format, subDays } from 'date-fns';
 import AfternoonCrash from './afternoonCrash';
 import Sleep from './sleep';
 
@@ -40,6 +40,59 @@ class User {
     }
 
     /**
+     * Retrieves a list of Day objects representing the interval of days from the startDate until the present day (or until the endDate, if provided).
+     * If startDate is a number, it represents the number of days before the current date.
+     * @param startDate The start date of the interval, either as a Date object or a number representing the number of days.
+     * @param endDate The end date of the interval (optional). If not provided, defaults to the current date.
+     * @returns An array of Day objects representing the interval of days.
+     */
+    getIntervalOfDays(startDate: Date | number, endDate: Date | null = null): Day[] {
+        let start: Date;
+        if (startDate instanceof Date) {
+            start = startDate;
+        } else {
+            start = subDays(new Date(), startDate);
+        }
+
+        const end = endDate ? endDate : new Date(); // Use endDate if provided, otherwise use the current date
+        const dates = eachDayOfInterval({ start, end });
+
+        const intervalDays: Day[] = [];
+
+        for (const date of dates) {
+            const day = this.getSpecificDay(date);
+            if (day) {
+                intervalDays.push(day);
+            }
+        }
+
+        return intervalDays;
+    }
+
+    /**
+     * Retrieves a list of Day objects representing all days from the current week (Monday to Sunday).
+     * @returns An array of Day objects representing the days from the current week.
+     */
+    getDaysFromCurrentWeek(): Day[] {
+        const today = new Date();
+        const startOfWeekDate = startOfWeek(today, { weekStartsOn: 1 }); // Start of current week (Monday)
+        const endOfWeekDate = endOfWeek(today, { weekStartsOn: 1 }); // End of current week (Sunday)
+        
+        const dates = eachDayOfInterval({ start: startOfWeekDate, end: endOfWeekDate });
+
+        const weekDays: Day[] = [];
+
+        for (const date of dates) {
+            const day = this.getSpecificDay(date);
+            if (day) {
+                weekDays.push(day);
+            }
+        }
+
+        return weekDays;
+    }
+
+    /**A
      * Populates the user's days array with Day objects for each day from the last recorded date until the current time.
      * If the user's days array is empty, it populates days starting from the current time.
      * Each Day object represents a single day and contains information about that day.
@@ -125,14 +178,19 @@ class User {
         }
     }
 
-    printUserDays() {
-        console.log(this.days.length + " days listed:");
+    printDays(days: Day[] = null) {
+        // If days parameter is not provided, use this.days
+        if (days === null) {
+            days = this.days;
+        }
+    
+        console.log(days.length + " days listed:");
         console.log("\n");
     
-        for (var i = 0; i < this.days.length; i++) {
-            console.log("Day: " + this.days[i].dateString + ":")
-            console.log("Crash Start: " + this.days[i].afternoonCrash.startTimeStringShort + " - Crash End: " + this.days[i].afternoonCrash.endTimeStringShort + " - Crash Duration: " + this.days[i].afternoonCrash.durationStringShort + " - Crash Score: " + this.days[i].afternoonCrash.crashScore);
-            console.log("Sleep Start: " + this.days[i].sleep.startTimeStringShort + " - Sleep End: " + this.days[i].sleep.endTimeStringShort + " - Sleep Duration: " + this.days[i].sleep.durationStringShort + " - Sleep Score: " + this.days[i].sleep.sleepScore);
+        for (var i = 0; i < days.length; i++) {
+            console.log("Day: " + days[i].dateString + ":")
+            console.log("Crash Start: " + days[i].afternoonCrash.startTimeStringShort + " - Crash End: " + days[i].afternoonCrash.endTimeStringShort + " - Crash Duration: " + days[i].afternoonCrash.durationStringShort + " - Crash Score: " + days[i].afternoonCrash.crashScore);
+            console.log("Sleep Start: " + days[i].sleep.startTimeStringShort + " - Sleep End: " + days[i].sleep.endTimeStringShort + " - Sleep Duration: " + days[i].sleep.durationStringShort + " - Sleep Score: " + days[i].sleep.sleepScore);
             console.log("\n");
         }
     }

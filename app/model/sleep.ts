@@ -1,4 +1,5 @@
 import { format, differenceInSeconds } from 'date-fns';
+import { COLORS } from '../../constants';
 
 class Sleep {
 
@@ -42,6 +43,21 @@ class Sleep {
     getStartTime() { return this.startTime; }
     getEndTime() { return this.endTime; }
     getSleepScore() { return this.sleepScore; }
+
+    getScoreColor() {
+        switch (this.sleepScore) {
+            case 1:
+                return COLORS.gradient_5;
+            case 2:
+                return COLORS.gradient_4;
+            case 3:
+                return COLORS.gradient_3;
+            case 4:
+                return COLORS.gradient_2;
+            case 5:
+                return COLORS.gradient_1;
+        }
+    }
 }
 
 export default Sleep;

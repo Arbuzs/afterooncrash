@@ -16,6 +16,7 @@ const COLORS = {
     gradient_3: '#F7E379',
     gradient_4: '#F2A134',
     gradient_5: '#E51F1F',
+    grey: "#D9D9D9",
     white: '#FFFFFF',
     black: '#000000',
 };

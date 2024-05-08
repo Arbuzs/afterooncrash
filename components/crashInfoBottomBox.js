@@ -5,48 +5,44 @@ import { format } from 'date-fns';
 import { ENUMS, COLORS } from '../constants';
 import styles from '../styles/components/crashInfoBottomBox';
 import baseScreenStyles from '../styles/screens/baseScreen';
+import Program from '../app/model/program';
 
 
 export default function CrashInfoBottomBox({dataType}) {
-
-    var weekCrashes = [
-       { weekDay: 'Mo', scoreColor: null, initialTime: null, finalTime: null },
-       { weekDay: 'Tu', scoreColor: null, initialTime: null, finalTime: null },
-       { weekDay: 'We', scoreColor: null, initialTime: null, finalTime: null },
-       { weekDay: 'Th', scoreColor: null, initialTime: null, finalTime: null },
-       { weekDay: 'Fr', scoreColor: null, initialTime: null, finalTime: null },
-       { weekDay: 'Sa', scoreColor: null, initialTime: null, finalTime: null },
-       { weekDay: 'Su', scoreColor: null, initialTime: null, finalTime: null },
-    ]
-
-    //Temporary
-    var colors = [COLORS.gradient_5, COLORS.gradient_3, COLORS.gradient_3, COLORS.gradient_5, COLORS.gradient_1, COLORS.gradient_2, COLORS.gradient_1 ]
     
-    var currentDate = new Date();
-
-    var currentDateString = getCurrentDateString(currentDate);
-    var currentWeekDayString = getCurrentWeekDayString(currentDate);
-
-    function getCurrentDateString(currentDate) {
-        return format(currentDate, 'dd.MM.yy');
-    }
-
-    function getCurrentWeekDayString(currentDate) {
-        return format(currentDate, 'EEEE');
-    }    
-
-    function fulfillWeekCrashes() {
-        for (var i = 0; i < colors.length; i++) {
-            weekCrashes[i].scoreColor = colors[i];
-            weekCrashes[i].initialTime = '16:00';
-            weekCrashes[i].finalTime = '18:00';
-        }
-    }
-    fulfillWeekCrashes()
-
     switch (dataType) {
 
         case ENUMS.AFTERNOON_CRASH_CLOCK_WEEK:
+
+            var weekCrashes = [
+                { weekDay: 'Mo', scoreColor: COLORS.grey, initialTime: "", finalTime: "" },
+                { weekDay: 'Tu', scoreColor: COLORS.grey, initialTime: "", finalTime: "" },
+                { weekDay: 'We', scoreColor: COLORS.grey, initialTime: "", finalTime: "" },
+                { weekDay: 'Th', scoreColor: COLORS.grey, initialTime: "", finalTime: "" },
+                { weekDay: 'Fr', scoreColor: COLORS.grey, initialTime: "", finalTime: "" },
+                { weekDay: 'Sa', scoreColor: COLORS.grey, initialTime: "", finalTime: "" },
+                { weekDay: 'Su', scoreColor: COLORS.grey, initialTime: "", finalTime: "" },
+            ]
+
+            var program = Program.getInstance();
+            var user = program.getCurrentUser();
+
+            var days = user.getDaysFromCurrentWeek();
+            user.printDays(days);
+
+            function fulfillWeekCrashes() {
+
+                for (var i = 0; i < days.length; i++) {
+                    if (days[i].hasAfternoonCrash()) {
+                        weekCrashes[i].scoreColor = days[i].afternoonCrash.getCrashColor();
+                        weekCrashes[i].initialTime = days[i].afternoonCrash.startTimeStringShort;
+                        weekCrashes[i].finalTime = days[i].afternoonCrash.endTimeStringShort;
+                    }
+                }
+            }
+
+            fulfillWeekCrashes()
+
             return (
                 <View style={styles.container}>
                     <View style={styles.scoresContainer}>

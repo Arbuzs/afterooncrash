@@ -22,7 +22,7 @@ export default function Summary() {
     var program = Program.getInstance();
     var user = program.getCurrentUser();
 
-    user.printUserDays();
+    user.printDays();
 
     // console.log(user.name);
     // console.log(user.email);

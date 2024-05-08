@@ -17,21 +17,20 @@ export default function AfternoonCrashClock({}) {
     
     var program = Program.getInstance();
     var params = program.getTempParams();
-    console.log(params);
 
     const dataType = params['afternoonCrashDataType'];
 
     return (
         <View style={baseScreenStyles.container}>
             <Header title={dataType} />
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            {/* <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <Clock />
                 <ClockTimeInterval />
-            </View>
-            {/* <View style={baseScreenStyles.baseDataContainer}>
+            </View> */}
+            <View style={baseScreenStyles.baseDataContainer}>
                 <CrashInfoBottomBox dataType={dataType}/>
             </View>
-            <View style={baseScreenStyles.spacer}/> */}
+            <View style={baseScreenStyles.spacer}/>
             <BottomToolbar />
         </View>
     )

@@ -14,7 +14,6 @@ export default function AfternoonCrashScreen({}) {
     
     var program = Program.getInstance();
     var params = program.getTempParams();
-    console.log(params);
 
     const dataType = params['afternoonCrashDataType'];
 

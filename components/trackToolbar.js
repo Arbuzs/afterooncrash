@@ -80,7 +80,7 @@ export default function TrackToolbar({ type }) {
 
             return (
                 <Link href={href} asChild>
-                    <Pressable style={styles.afternoonCrashContainer} onPress={() => console.log('Afternoon Crash pressed')}>
+                    <Pressable style={styles.afternoonCrashContainer}>
                         <Text style={styles.text}>Afternoon Crash</Text>
                         <Image source={icons.arrow} style={styles.arrow} />
                         <View style={styles.periodContainer}>

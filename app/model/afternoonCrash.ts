@@ -1,4 +1,5 @@
 import { format, differenceInSeconds } from 'date-fns';
+import { COLORS } from '../../constants';
 
 class AfternoonCrash {
 
@@ -45,6 +46,21 @@ class AfternoonCrash {
     getEndTime() { return this.endTime; }
     getCrashScore() { return this.crashScore; }
     getDescription() { return this.description; }
+
+    getCrashColor() {
+        switch (this.crashScore) {
+            case 1:
+                return COLORS.gradient_5;
+            case 2:
+                return COLORS.gradient_4;
+            case 3:
+                return COLORS.gradient_3;
+            case 4:
+                return COLORS.gradient_2;
+            case 5:
+                return COLORS.gradient_1;
+        }
+    }
 }
 
 export default AfternoonCrash;
