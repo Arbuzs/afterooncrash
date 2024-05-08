@@ -31,11 +31,8 @@ export default function TrackToolbar({ type }) {
 
             const [selectedPeriod, setSelectedPeriod] = useState('D');
 
-            var href;
             var params;
             var program = Program.getInstance();
-        
-            href = "screens/afternoonCrashClock";
             params = program.getTempParams(reset=false);
         
             if (params['periodContainerPressed'] == false) {
@@ -49,27 +46,22 @@ export default function TrackToolbar({ type }) {
                 if (currentSelectedPeriod !== period) {
                     switch (period) {
                         case 'D':
-                            href = "screens/afternoonCrashClock";
                             params = {"periodContainerPressed": true, "afternoonCrashDataType": ENUMS.AFTERNOON_CRASH_CLOCK_DAY};
                             break;
             
                         case 'W':
-                            href = "screens/afternoonCrashClock";
                             params = {"periodContainerPressed": true, "afternoonCrashDataType": ENUMS.AFTERNOON_CRASH_CLOCK_WEEK};
                             break;
             
                         case 'M':
-                            href = "screens/afternoonCrashScreen";
                             params = {"periodContainerPressed": true, "afternoonCrashDataType": ENUMS.MONTH_OVERVIEW_DURATION_DATA};
                             break;
             
                         case '6M':
-                            href = "screens/afternoonCrashScreen";
                             params = {"periodContainerPressed": true, "afternoonCrashDataType": ENUMS.CALENDAR_DATA};
                             break;
             
                         case 'Y':
-                            href = "screens/afternoonCrashScreen";
                             params = {"periodContainerPressed": true, "afternoonCrashDataType": ENUMS.CALENDAR_DATA};
                             break;
                     }
@@ -79,7 +71,7 @@ export default function TrackToolbar({ type }) {
             };
 
             return (
-                <Link href={href} asChild>
+                <Link href="screens/afternoonCrashScreen" asChild>
                     <Pressable style={styles.afternoonCrashContainer}>
                         <Text style={styles.text}>Afternoon Crash</Text>
                         <Image source={icons.arrow} style={styles.arrow} />

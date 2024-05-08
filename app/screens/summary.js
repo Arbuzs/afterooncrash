@@ -19,10 +19,8 @@ export default function Summary() {
 
     // ---- TESTING ----
     
-    var program = Program.getInstance();
-    var user = program.getCurrentUser();
-
-    user.printDays();
+    // var program = Program.getInstance();
+    // var user = program.getCurrentUser();
 
     // console.log(user.name);
     // console.log(user.email);

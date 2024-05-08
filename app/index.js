@@ -24,6 +24,7 @@ function signUp(id, name, email, password) {
     var user = new User(id, name, email, password)
     var program = Program.getInstance()
     program.setCurrentUser(user, generate=generateRandomDays, startDate);
+    user.printDays();
 }
 
 export default Home;
