@@ -130,9 +130,9 @@ class User {
         console.log("\n");
     
         for (var i = 0; i < this.days.length; i++) {
-            console.log("Day: " + this.days[i].dateString + "- Sleep: " + this.days[i].sleep.durationStringShort + "- Afternoon Crash: " + this.days[i].afternoonCrash.durationStringShort);
-            console.log("Day: " + this.days[i].dateString + " - Crash Start: " + this.days[i].afternoonCrash.startTimeStringShort + " - Crash End: " + this.days[i].afternoonCrash.endTimeStringShort + " - Crash Duration: " + this.days[i].afternoonCrash.durationStringShort + " - Crash Score: " + this.days[i].afternoonCrash.crashScore);
-            console.log("Day: " + this.days[i].dateString + " - Sleep Start: " + this.days[i].sleep.startTimeStringShort + " - Sleep End: " + this.days[i].sleep.endTimeStringShort + " - Sleep Duration: " + this.days[i].sleep.durationStringShort + " - Sleep Score: " + this.days[i].sleep.sleepScore);
+            console.log("Day: " + this.days[i].dateString + ":")
+            console.log("Crash Start: " + this.days[i].afternoonCrash.startTimeStringShort + " - Crash End: " + this.days[i].afternoonCrash.endTimeStringShort + " - Crash Duration: " + this.days[i].afternoonCrash.durationStringShort + " - Crash Score: " + this.days[i].afternoonCrash.crashScore);
+            console.log("Sleep Start: " + this.days[i].sleep.startTimeStringShort + " - Sleep End: " + this.days[i].sleep.endTimeStringShort + " - Sleep Duration: " + this.days[i].sleep.durationStringShort + " - Sleep Score: " + this.days[i].sleep.sleepScore);
             console.log("\n");
         }
     }
