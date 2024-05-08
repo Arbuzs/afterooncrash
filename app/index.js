@@ -4,7 +4,7 @@ import User from './model/user';
 import Program from './model/program';
 
 const generateRandomDays = true;
-const startDate = new Date(2024, 3, 29); //YYYY, M, D - Month is with index 0, so 0 is January
+const startDate = new Date(2024, 3, 8); //YYYY, M, D - Month is with index 0, so 0 is January
 
 //Now use screens/{name_of_screen}
 const Home = () => {

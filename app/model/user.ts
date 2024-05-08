@@ -1,5 +1,5 @@
 import Day from './day';
-import { eachDayOfInterval, isSameDay, startOfWeek, endOfWeek, format, subDays } from 'date-fns';
+import { eachDayOfInterval, isSameDay, startOfWeek, endOfWeek, startOfMonth, endOfMonth, subMonths, format, subDays } from 'date-fns';
 import AfternoonCrash from './afternoonCrash';
 import Sleep from './sleep';
 
@@ -90,6 +90,50 @@ class User {
         }
 
         return weekDays;
+    }
+
+    /**
+     * Retrieves a list of Day objects representing all days from the specified number of past months.
+     * @param numberOfMonths The number of past months to retrieve days from. 
+     *                       For example, 1 for the previous month, 2 for two months ago, and so on.
+     * @returns An array of Day objects representing the days from the specified past months.
+     */
+    getDaysFromPastMonths(numberOfMonths: number): Day[] {
+        const today = new Date();
+        const startOfCurrentMonth = startOfMonth(today); // Start of current month
+        const pastMonthsDays: Day[] = [];
+
+        for (let i = 0; i < numberOfMonths; i++) {
+            const startOfPastMonth = subMonths(startOfCurrentMonth, i); // Start of each past month
+            const endOfPastMonth = endOfMonth(startOfPastMonth); // End of each past month
+            
+            const dates = eachDayOfInterval({ start: startOfPastMonth, end: endOfPastMonth });
+
+            for (const date of dates) {
+                const day = this.getSpecificDay(date);
+                if (day) {
+                    pastMonthsDays.push(day);
+                }
+            }
+        }
+
+        return pastMonthsDays;
+    }
+
+    /**
+     * Retrieves a list of Day objects representing all days from the current month.
+     * @returns An array of Day objects representing the days from the current month.
+     */
+    getDaysFromCurrentMonth(): Day[] {
+        return this.getDaysFromPastMonths(1);
+    }
+
+    /**
+     * Retrieves a list of Day objects representing all days from the current year.
+     * @returns An array of Day objects representing the days from the current year.
+     */
+    getDaysFromCurrentYear(): Day[] {
+        return this.getDaysFromPastMonths(12);
     }
 
     /**A
